@@ -1,0 +1,23 @@
+{
+  "compilerOptions": { 
+    "module": "commonjs",
+    "target": "ES6",
+    "lib": ["ES6"],
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "experimentalDecorators": true,
+    "outDir": "./dist",
+    "rootDirs": ["./src", "./tests"],
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"],
+      "@tests/*": ["../tests/*"],
+    }
+  },
+  "include": ["src/**/*.ts", "tests/**/*.ts"],
+  "exclude": ["node_modules"]
+}
+
