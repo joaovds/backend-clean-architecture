@@ -1,2 +1,2 @@
-export * from './loadProductsUsecase';
+export * from './loadProducts';
 
