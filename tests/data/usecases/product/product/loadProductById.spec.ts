@@ -1,3 +1,4 @@
+import { MissingParamError } from '@/domain/errors/shared';
 import { DbLoadProductById } from '@/data/usecases/product';
 import { LoadProductByIdRepositorySpy } from '@/tests/data/mocks/product';
 
@@ -31,5 +32,22 @@ describe('DbLoadProductById', () => {
     await sut.load('any_id');
 
     expect(loadProductByIdRepositorySpy.productId).toBe('any_id');
+  });
+
+  it('should throw if LoadProductByIdRepository throws', async () => {
+    const { sut, loadProductByIdRepositorySpy } = makeSut();
+
+    jest.spyOn(loadProductByIdRepositorySpy, 'loadById').mockRejectedValueOnce(new Error());
+    const promise = sut.load('any_id');
+
+    expect(promise).rejects.toThrow();
+  });
+
+  it('should throw MissingParamError if productId is empty', async () => {
+    const { sut } = makeSut();
+
+    const promise = sut.load('');
+
+    expect(promise).rejects.toThrowError(new MissingParamError('productId'));
   });
 });
