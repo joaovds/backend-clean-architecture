@@ -8,4 +8,3 @@ export const mockProductEntity = (): ProductEntity => ({
   isActive: true,
 });
 
-
