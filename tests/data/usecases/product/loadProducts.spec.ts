@@ -35,6 +35,15 @@ describe('DbLoadProducts', () => {
     expect(result).toEqual(loadProductsRepositorySpy.result);
   });
 
+  it('should return empty list if LoadProductsRepository returns empty list', async () => {
+    const { sut, loadProductsRepositorySpy } = makeSut();
+
+    loadProductsRepositorySpy.result = [];
+    const result = await sut.load();
+
+    expect(result).toEqual([]);
+  });
+
   it('should throw if LoadProductsRepository throws', async () => {
     const { sut, loadProductsRepositorySpy } = makeSut();
 
