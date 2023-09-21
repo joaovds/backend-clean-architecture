@@ -20,6 +20,7 @@ export class LoadProductsRepositorySpy implements LoadProductsRepository {
 }
 
 export class LoadProductByIdRepositorySpy implements LoadProductByIdRepository {
+  productId: string = "";
   result: LoadProductByIdRepository.Result = {
     id: 'any_id',
     name: 'any_name',
@@ -29,6 +30,8 @@ export class LoadProductByIdRepositorySpy implements LoadProductByIdRepository {
   };
 
   async loadById(productId: string): Promise<LoadProductByIdRepository.Result> {
+    this.productId = productId;
+
     return this.result;
   }
 }

@@ -24,4 +24,12 @@ describe('DbLoadProductById', () => {
 
     expect(product).toEqual(loadProductByIdRepositorySpy.result);
   });
+
+  it('should call LoadProductByIdRepository with correct values', async () => {
+    const { sut, loadProductByIdRepositorySpy } = makeSut();
+    
+    await sut.load('any_id');
+
+    expect(loadProductByIdRepositorySpy.productId).toBe('any_id');
+  });
 });
