@@ -41,12 +41,21 @@ const makeSut = (): SutTypes => {
 };
 
 describe("DbLoadCategories", () => {
-  it('should return a list of categories on success', async () => {
+  it('should call LoadCategoriesRepository with correct values', async () => {
     const { sut, loadCategoriesRepositorySpy } = makeSut();
 
-    const categories = await sut.load();
+    const result = await sut.load();
 
-    expect(categories).toEqual(loadCategoriesRepositorySpy.result);
+    expect(result).toEqual(loadCategoriesRepositorySpy.result);
+  });
+
+  it('should throw if LoadCategoriesRepository throws', async () => {
+    const { sut, loadCategoriesRepositorySpy } = makeSut();
+
+    jest.spyOn(loadCategoriesRepositorySpy, 'loadAll').mockRejectedValueOnce(new Error());
+    const promise = sut.load();
+
+    expect(promise).rejects.toThrow();
   });
 });
 
