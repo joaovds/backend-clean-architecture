@@ -1,29 +1,5 @@
-import { CategoryEntity } from "@/domain/entities/product";
-import { LoadCategories } from "@/domain/usecases/product";
-import { mockCategoryEntity } from "@/tests/domain/mocks/product";
-
-interface LoadCategoriesRepository {
-  loadAll: () => Promise<CategoryEntity[]>;
-};
-
-export class LoadCategoriesRepositorySpy implements LoadCategoriesRepository {
-  result: CategoryEntity[] = [
-    mockCategoryEntity(),
-    mockCategoryEntity(),
-  ];
-
-  async loadAll (): Promise<CategoryEntity[]> {
-    return this.result;
-  };
-};
-
-export class DbLoadCategories implements LoadCategories {
-  constructor (private readonly loadCategoriesRepository: LoadCategoriesRepositorySpy) {}
-
-  async load (): Promise<CategoryEntity[]> {
-    return this.loadCategoriesRepository.loadAll();
-  }
-}
+import { DbLoadCategories } from '@/data/usecases/product/category';
+import { LoadCategoriesRepositorySpy } from '@/tests/data/mocks/product/mockCategory';
 
 type SutTypes = {
   sut: DbLoadCategories;
