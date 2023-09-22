@@ -57,5 +57,14 @@ describe("DbLoadCategories", () => {
 
     expect(promise).rejects.toThrow();
   });
+
+  it('should return empty list if LoadCategoriesRepository returns empty list', async () => {
+    const { sut, loadCategoriesRepositorySpy } = makeSut();
+
+    loadCategoriesRepositorySpy.result = [];
+    const result = await sut.load();
+
+    expect(result).toEqual([]);
+  });
 });
 
