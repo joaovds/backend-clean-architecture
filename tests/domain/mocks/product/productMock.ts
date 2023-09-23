@@ -1,12 +1,13 @@
+import crypto from 'node:crypto';
 import { ProductEntity } from '@/domain/entities/product';
-import { mockCategoryEntity } from './categoryMock';
+import { mockCategoryEntity } from '@/tests/domain/mocks/product/categoryMock';
 
 type MockProductEntity = {
   productId?: string;
 };
 
 const mockProductEntity = (params?: MockProductEntity) => {
-  const { productId = 'any_id' } = params || {};
+  const { productId = crypto.randomUUID() } = params || {};
 
   const product = new ProductEntity(
     productId,
