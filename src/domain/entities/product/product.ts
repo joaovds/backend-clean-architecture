@@ -1,7 +1,10 @@
 import crypto from 'node:crypto';
 
+import { CategoryEntity } from './category';
+
 export class ProductEntity {
   id: string;
+  categories: CategoryEntity[] = [];
 
   constructor(
     id: string | undefined,
@@ -15,6 +18,12 @@ export class ProductEntity {
     } else {
       this.id = crypto.randomUUID();
     }
+  };
+
+  addCategory(category: CategoryEntity) {
+    if(!this.categories.includes(category)) {
+      this.categories.push(category);
+    };
   };
 };
 
