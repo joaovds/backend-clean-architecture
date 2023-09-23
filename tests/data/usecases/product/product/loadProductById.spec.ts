@@ -43,7 +43,7 @@ describe('DbLoadProductById', () => {
     expect(promise).rejects.toThrow();
   });
 
-  it('should throw if LoadProductByIdRepository returns null', async () => {
+  it('should throw NotFoundError if LoadProductByIdRepository returns null', async () => {
     const { sut, loadProductByIdRepositorySpy } = makeSut();
 
     loadProductByIdRepositorySpy.result = null;
