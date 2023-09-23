@@ -1,4 +1,5 @@
 import { DbLoadProductById } from '@/data/usecases/product';
+import { NotFoundError } from '@/domain/errors/shared';
 import { LoadProductByIdRepositorySpy } from '@/tests/data/mocks/product';
 
 type SutTypes = {
@@ -48,6 +49,6 @@ describe('DbLoadProductById', () => {
     loadProductByIdRepositorySpy.result = null;
     const promise = sut.load('any_id');
 
-    expect(promise).rejects.toThrow();
+    expect(promise).rejects.toThrowError(new NotFoundError('Product'));
   });
 });

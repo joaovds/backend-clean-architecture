@@ -12,8 +12,9 @@ export class ProductEntity {
   ) {};
 
   addCategory(category: CategoryEntity) {
-    if(!this.categories.includes(category)) {
+    if(!this.categories.some((item) => item.id === category.id)) {
       this.categories.push(category);
+      return;
     };
   };
 };

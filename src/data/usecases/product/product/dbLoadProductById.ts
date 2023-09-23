@@ -1,4 +1,5 @@
 import { LoadProductById } from '@/domain/usecases/product';
+import { NotFoundError } from '@/domain/errors/shared';
 import { LoadProductByIdRepository } from '@/data/contracts/repositories/product';
 
 export class DbLoadProductById implements LoadProductById {
@@ -10,7 +11,7 @@ export class DbLoadProductById implements LoadProductById {
     const product = await this.loadProductByIdRepository.loadById(productId);
 
     if(product === null) {
-      throw new Error('Product not found');
+      throw new NotFoundError('Product');
     };
 
     return product;
