@@ -17,6 +17,14 @@ const makeSut = (): SutTypes => {
 };
 
 describe("DbLoadCategories", () => {
+  it('should return a list of categories on success', async () => {
+    const { sut, loadCategoriesRepositorySpy } = makeSut();
+
+    const categories = await sut.load();
+
+    expect(categories).toEqual(loadCategoriesRepositorySpy.result);
+  });
+
   it('should call LoadCategoriesRepository with correct values', async () => {
     const { sut, loadCategoriesRepositorySpy } = makeSut();
 
