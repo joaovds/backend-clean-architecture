@@ -5,6 +5,6 @@ export interface LoadProductByIdRepository {
 };
 
 export namespace LoadProductByIdRepository {
-  export type Result = ProductEntity;
+  export type Result = ProductEntity | null;
 };
 

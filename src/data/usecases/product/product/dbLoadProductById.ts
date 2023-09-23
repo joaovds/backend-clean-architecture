@@ -7,7 +7,13 @@ export class DbLoadProductById implements LoadProductById {
   ) {}
 
   async load(productId: string): Promise<LoadProductById.Result> {
-    return this.loadProductByIdRepository.loadById(productId);
+    const product = await this.loadProductByIdRepository.loadById(productId);
+
+    if(product === null) {
+      throw new Error('Product not found');
+    };
+
+    return product;
   }
 }
 

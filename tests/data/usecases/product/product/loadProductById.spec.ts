@@ -41,4 +41,13 @@ describe('DbLoadProductById', () => {
 
     expect(promise).rejects.toThrow();
   });
+
+  it('should throw if LoadProductByIdRepository returns null', async () => {
+    const { sut, loadProductByIdRepositorySpy } = makeSut();
+
+    loadProductByIdRepositorySpy.result = null;
+    const promise = sut.load('any_id');
+
+    expect(promise).rejects.toThrow();
+  });
 });
