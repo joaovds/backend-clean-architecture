@@ -1,2 +1,3 @@
-export * from './mockProduct';
+export * from './mockProductRepository';
+export * from './mockCategoryRepository';
 

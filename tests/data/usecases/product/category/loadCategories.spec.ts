@@ -1,5 +1,5 @@
 import { DbLoadCategories } from '@/data/usecases/product/category';
-import { LoadCategoriesRepositorySpy } from '@/tests/data/mocks/product/mockCategory';
+import { LoadCategoriesRepositorySpy } from '@/tests/data/mocks/product';
 
 type SutTypes = {
   sut: DbLoadCategories;

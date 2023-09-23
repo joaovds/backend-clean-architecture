@@ -52,5 +52,13 @@ describe('DbLoadProducts', () => {
 
     expect(promise).rejects.toThrow();
   });
+
+  it('should return categories with correct values', async () => {
+    const { sut, loadProductsRepositorySpy } = makeSut();
+
+    const products = await sut.load();
+
+    expect(products[0].categories).toBe(loadProductsRepositorySpy.result[0].categories);
+  });
 });
 

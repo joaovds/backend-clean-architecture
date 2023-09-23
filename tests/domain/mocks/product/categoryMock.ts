@@ -1,9 +1,13 @@
 import { CategoryEntity } from "@/domain/entities/product";
 
-export const mockCategoryEntity = (): CategoryEntity => ({
-  id: 'any_id',
-  name: 'any_name',
-  description: 'any_description',
-  isActive: true,
-});
+export const mockCategoryEntity = (): CategoryEntity => {
+  const category = new CategoryEntity(
+    'any_id',
+    'any_name',
+    'any_description',
+    true,
+  );
+
+  return category;
+};
 
