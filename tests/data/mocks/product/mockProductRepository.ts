@@ -17,7 +17,7 @@ export class LoadProductsRepositorySpy implements LoadProductsRepository {
 
 export class LoadProductByIdRepositorySpy implements LoadProductByIdRepository {
   productId: string = "";
-  result: LoadProductByIdRepository.Result = mockProductEntity();
+  result: LoadProductByIdRepository.Result = mockProductEntity()
 
   async loadById(productId: string): Promise<LoadProductByIdRepository.Result> {
     this.productId = productId;

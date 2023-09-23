@@ -1,9 +1,15 @@
 import { ProductEntity } from '@/domain/entities/product';
 import { mockCategoryEntity } from './categoryMock';
 
-const mockProductEntity = () => {
+type MockProductEntity = {
+  productId?: string;
+};
+
+const mockProductEntity = (params?: MockProductEntity) => {
+  const { productId = 'any_id' } = params || {};
+
   const product = new ProductEntity(
-    'any_id',
+    productId,
     'any_name',
     100,
     'any_sku',

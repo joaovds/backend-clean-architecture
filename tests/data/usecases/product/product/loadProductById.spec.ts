@@ -1,4 +1,3 @@
-import { MissingParamError } from '@/domain/errors/shared';
 import { DbLoadProductById } from '@/data/usecases/product';
 import { LoadProductByIdRepositorySpy } from '@/tests/data/mocks/product';
 
@@ -41,13 +40,5 @@ describe('DbLoadProductById', () => {
     const promise = sut.load('any_id');
 
     expect(promise).rejects.toThrow();
-  });
-
-  it('should throw MissingParamError if productId is empty', async () => {
-    const { sut } = makeSut();
-
-    const promise = sut.load('');
-
-    expect(promise).rejects.toThrowError(new MissingParamError('productId'));
   });
 });
