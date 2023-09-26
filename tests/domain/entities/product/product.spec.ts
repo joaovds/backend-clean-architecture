@@ -5,13 +5,13 @@ describe('ProductEntity', () => {
   let product: ProductEntity;
 
   beforeEach(() => {
-    product = new ProductEntity(
-      'any_id',
-      'product',
-      100,
-      'any_sku',
-      true,
-    );
+    product = new ProductEntity({
+      id: 'any_id',
+      name: 'product',
+      price: 100,
+      sku: 'any_sku',
+      isActive: true,
+    });
   });
 
   it('should create a product entity', () => {

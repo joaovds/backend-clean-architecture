@@ -9,13 +9,13 @@ type MockProductEntity = {
 const mockProductEntity = (params?: MockProductEntity) => {
   const { productId = crypto.randomUUID() } = params || {};
 
-  const product = new ProductEntity(
-    productId,
-    'any_name',
-    100,
-    'any_sku',
-    true,
-  );
+  const product = new ProductEntity({
+    id: productId,
+    name: 'any_name',
+    price: 100,
+    sku: 'any_sku',
+    isActive: true,
+  });
 
   product.addCategory(mockCategoryEntity());
   product.addCategory(mockCategoryEntity());
