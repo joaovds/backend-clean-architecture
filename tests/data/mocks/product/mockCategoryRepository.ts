@@ -1,5 +1,6 @@
 import { CategoryEntity } from "@/domain/entities/product";
 import {
+  AddCategoryRepository,
   LoadCategoriesRepository,
   LoadCategoryByIdRepository,
 } from "@/data/contracts/repositories/product/category";
@@ -26,5 +27,18 @@ export class LoadCategoryByIdRepositorySpy implements LoadCategoryByIdRepository
     return this.result;
   }
 }
+
+export class AddCategoryRepositorySpy implements AddCategoryRepository {
+  params: AddCategoryRepository.Params = mockCategoryEntity();
+  callsCount: number = 0;
+
+  async add(params: AddCategoryRepository.Params): Promise<AddCategoryRepository.Result> {
+    this.params = params;
+    this.callsCount++;
+
+    return;
+  }
+}
+
 
 
