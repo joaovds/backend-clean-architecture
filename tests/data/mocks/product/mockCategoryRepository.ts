@@ -1,3 +1,5 @@
+import crypto from "node:crypto";
+
 import { CategoryEntity } from "@/domain/entities/product";
 import {
   AddCategoryRepository,
@@ -31,12 +33,15 @@ export class LoadCategoryByIdRepositorySpy implements LoadCategoryByIdRepository
 export class AddCategoryRepositorySpy implements AddCategoryRepository {
   params: AddCategoryRepository.Params = mockCategoryEntity();
   callsCount: number = 0;
+  result: AddCategoryRepository.Result = {
+    id: crypto.randomUUID(),
+  };
 
   async add(params: AddCategoryRepository.Params): Promise<AddCategoryRepository.Result> {
     this.params = params;
     this.callsCount++;
 
-    return;
+    return this.result;
   }
 }
 

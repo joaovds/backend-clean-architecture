@@ -7,6 +7,6 @@ export interface AddCategoryRepository {
 export namespace AddCategoryRepository {
   export type Params = AddCategory.Params;
 
-  export type Result = void;
+  export type Result = AddCategory.Result;
 };
 

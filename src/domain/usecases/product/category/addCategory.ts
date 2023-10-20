@@ -7,6 +7,8 @@ export interface AddCategory {
 export namespace AddCategory {
   export type Params = CategoryEntity;
 
-  export type Result = void;
+  export type Result = {
+    id: string;
+  };
 };
 

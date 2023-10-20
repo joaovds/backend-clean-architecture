@@ -28,6 +28,23 @@ describe('DbAddCategory', () => {
     expect(addCategoryRepositorySpy.callsCount).toBe(1);
   });
 
+  it('should return an category entity on success', async () => {
+    const { sut, addCategoryRepositorySpy } = makeSut();
+
+    const result = await sut.add(mockCategoryEntity());
+
+    expect(result).toEqual(addCategoryRepositorySpy.result);
+  });
+
+  it('should return an category with correct id', async () => {
+    const { sut, addCategoryRepositorySpy } = makeSut();
+
+    addCategoryRepositorySpy.result.id = 'any_id';
+    const result = await sut.add(mockCategoryEntity());
+
+    expect(result.id).toEqual(addCategoryRepositorySpy.result.id);
+  });
+
   it('should throw if AddCategoryRepository throws', async () => {
     const { sut, addCategoryRepositorySpy } = makeSut();
 

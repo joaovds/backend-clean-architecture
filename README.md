@@ -3,8 +3,8 @@
 *Product Category*
 
 **Create**
-- [ ] Domain
-- [ ] Data
+- [x] Domain
+- [x] Data
 
 **Get All**
 - [x] Domain
