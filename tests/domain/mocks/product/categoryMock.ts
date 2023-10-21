@@ -14,3 +14,12 @@ export const mockCategoryEntity = (): CategoryEntity => {
   return category;
 };
 
+export const mockUpdateCategoryEntity = (): Partial<CategoryEntity> => {
+  const category = {
+    name: 'update_any_name',
+    description: 'update_any_description',
+  };
+
+  return category;
+};
+

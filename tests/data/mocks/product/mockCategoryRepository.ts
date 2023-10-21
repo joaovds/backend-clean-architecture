@@ -6,8 +6,9 @@ import {
   DeleteCategoryRepository,
   LoadCategoriesRepository,
   LoadCategoryByIdRepository,
+  UpdateCategoryRepository,
 } from "@/data/contracts/repositories/product/category";
-import { mockCategoryEntity } from "@/tests/domain/mocks/product";
+import { mockCategoryEntity, mockUpdateCategoryEntity } from "@/tests/domain/mocks/product";
 
 export class LoadCategoriesRepositorySpy implements LoadCategoriesRepository {
   result: CategoryEntity[] = [
@@ -43,6 +44,18 @@ export class AddCategoryRepositorySpy implements AddCategoryRepository {
     this.callsCount++;
 
     return this.result;
+  }
+}
+
+export class UpdateCategoryRepositorySpy implements UpdateCategoryRepository {
+  params: UpdateCategoryRepository.Params = mockUpdateCategoryEntity();
+  callsCount: number = 0;
+
+  async update(params: UpdateCategoryRepository.Params): Promise<UpdateCategoryRepository.Result> {
+    this.params = params;
+    this.callsCount++;
+
+    return;
   }
 }
 
