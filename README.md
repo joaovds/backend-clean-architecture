@@ -19,6 +19,6 @@
 - [ ] Data
 
 **Delete**
-- [ ] Domain
-- [ ] Data
+- [x] Domain
+- [x] Data
 

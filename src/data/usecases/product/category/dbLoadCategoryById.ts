@@ -2,7 +2,7 @@ import { LoadCategoryById } from "@/domain/usecases/product";
 import { NotFoundError } from "@/domain/errors/shared";
 import { LoadCategoryByIdRepository } from "@/data/contracts/repositories/product";
 
-export class DbLoadPCategoryById implements LoadCategoryById {
+export class DbLoadCategoryById implements LoadCategoryById {
   constructor(
     private readonly loadCategoryByIdRepository: LoadCategoryByIdRepository,
   ) {}

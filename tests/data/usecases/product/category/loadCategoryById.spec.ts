@@ -1,15 +1,15 @@
-import { DbLoadPCategoryById } from "@/data/usecases/product";
+import { DbLoadCategoryById } from "@/data/usecases/product";
 import { NotFoundError } from "@/domain/errors/shared";
 import { LoadCategoryByIdRepositorySpy } from "@/tests/data/mocks/product";
 
 type SutTypes = {
-  sut: DbLoadPCategoryById;
+  sut: DbLoadCategoryById;
   loadCategoryByIdRepositorySpy: LoadCategoryByIdRepositorySpy;
 };
 
 const makeSut = (): SutTypes => {
   const loadCategoryByIdRepositorySpy = new LoadCategoryByIdRepositorySpy();
-  const sut = new DbLoadPCategoryById(loadCategoryByIdRepositorySpy);
+  const sut = new DbLoadCategoryById(loadCategoryByIdRepositorySpy);
 
   return {
     sut,

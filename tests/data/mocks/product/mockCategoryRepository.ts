@@ -3,6 +3,7 @@ import crypto from "node:crypto";
 import { CategoryEntity } from "@/domain/entities/product";
 import {
   AddCategoryRepository,
+  DeleteCategoryRepository,
   LoadCategoriesRepository,
   LoadCategoryByIdRepository,
 } from "@/data/contracts/repositories/product/category";
@@ -45,5 +46,13 @@ export class AddCategoryRepositorySpy implements AddCategoryRepository {
   }
 }
 
+export class DeleteCategoryRepositorySpy implements DeleteCategoryRepository {
+  categoryId: string = "";
 
+  async delete(categoryId: string): Promise<DeleteCategoryRepository.Result> {
+    this.categoryId = categoryId;
+
+    return;
+  }
+}
 
