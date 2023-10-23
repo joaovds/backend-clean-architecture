@@ -40,5 +40,17 @@ describe('ProductEntity', () => {
 
     expect(product.categories).toHaveLength(2);
   });
+
+  it('should remove a category from product', () => {
+    const category = mockCategoryEntity();
+    const category2 = mockCategoryEntity();
+
+    product.addCategory(category);
+    product.addCategory(category2);
+
+    category.id && product.removeCategory(category.id);
+
+    expect(product.categories).toHaveLength(1);
+  });
 });
 

@@ -18,7 +18,7 @@ export class ProductEntity {
     this.isActive = isActive;
   };
 
-  addCategory(category: CategoryEntity) {
+  public addCategory(category: CategoryEntity) {
     if(!this.hasCategory(category)) {
       this.categories.push(category);
       return;
@@ -28,6 +28,11 @@ export class ProductEntity {
   private hasCategory(category: CategoryEntity): boolean {
     return this.categories.some((item) => item.id === category.id);
   }
+
+  public removeCategory(categoryId: string): void {
+    this.categories = this.categories.filter((item) => item.id !== categoryId);
+    return;
+  };
 };
 
 export namespace ProductEntity {
