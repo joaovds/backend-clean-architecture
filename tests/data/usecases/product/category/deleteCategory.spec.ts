@@ -33,4 +33,12 @@ describe('DbDeleteCategory', () => {
 
     expect(promise).rejects.toThrow();
   });
+
+  it('should return void on success', async () => {
+    const { sut } = makeSut();
+
+    const result = await sut.delete('any_id');
+
+    expect(result).toBeUndefined();
+  });
 });
